@@ -144,8 +144,8 @@ img {
 
 /* home section */
 #home {
-  background: url('../images/home-bg.jpg') no-repeat;
-  background-size: cover;
+  background: url('../images/home-bg.png') no-repeat;
+  background-size: 1800px;
   background-position: center;
   min-height: 80vh;
   position: relative;
@@ -322,7 +322,7 @@ img {
 
 /* contact section */
 #contact-header {
-  background: url('../images/home-bg.jpg') no-repeat;
+  background: url('../images/home-bg.png') no-repeat;
   background-size: cover;
   background-position: center;
   min-height: 500px;
