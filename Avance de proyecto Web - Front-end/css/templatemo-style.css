@@ -8,7 +8,7 @@ http://www.templatemo.com/tm-468-onetel
 
 body {
   background: #101010;
-  color: #808080;
+  color: #faf9f9;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
 }
@@ -62,7 +62,7 @@ img {
 /* button section */
 .btn {
   background: transparent;
-  border: 2px solid #fff;
+  border: transparent;
   border-radius: 0px;
   box-shadow: none;
   color: #fff;
@@ -257,7 +257,7 @@ img {
 }
 
 #team h4 {
-  color: #d54ab6;
+  color: #55a335;
 }
 
 #team img {
@@ -487,4 +487,71 @@ footer a:hover {
   footer h3 {
     padding-top: 30px;
   }
+}
+
+/* Modal general */
+.modal {
+  display: none; /* Oculto por defecto */
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fondo oscuro */
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+}
+#productModal {
+  display: none;
+}
+.modal.show {
+  display: flex; /* Mostrar el modal */
+}
+/* Contenido del modal */
+.modal-content {
+  background-color: #101010;
+  padding: 20px;
+  border-radius: 8px;
+  width: 400px; /* Tamaño más pequeño */
+  max-width: 90%;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Botón cerrar */
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+}
+
+.close-button:hover {
+  color: #ff0000;
+}
+
+/* Imagen del producto */
+.modal-image img {
+  border-radius: 8px;
+  margin-bottom: 15px;
+  max-width: 100%; /* Ajusta la imagen al ancho */
+}
+
+/* Botón de añadir al carrito */
+button#addToCartButton {
+  background-color: #55a335;
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button#addToCartButton:hover {
+  background-color: #55a335;
 }
