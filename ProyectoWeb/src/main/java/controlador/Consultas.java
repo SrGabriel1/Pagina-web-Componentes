@@ -17,7 +17,8 @@ public class Consultas extends Conexion {
         PreparedStatement pst = null;
         ResultSet rs = null;
         try {
-            String consulta = "select * from usuarios where nombre=? and contrasena=?";
+            System.out.println("usuario:"+usuario+"clave:"+clave);
+            String consulta = "select * from usuario where nombre=? and contrasena=?";
             System.out.println("Consulta es " + consulta);
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, usuario);
@@ -52,7 +53,7 @@ public class Consultas extends Conexion {
     public boolean registrar(String usuario, String clave) {
         PreparedStatement pst = null;
         try {
-            String consulta = "insert into usuarios(nombre,contrasena) values(?,?)";
+            String consulta = "insert into usuario(nombre,contrasena) values(?,?)";
             pst = getConexion().prepareStatement(consulta);
             pst.setString(1, usuario);
             pst.setString(2, clave);

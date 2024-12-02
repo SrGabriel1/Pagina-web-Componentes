@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    HttpSession objSesion = request.getSession(false);
+    String usuario = (String) objSesion.getAttribute("usuario");
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -39,8 +43,18 @@
                     <ul class="nav navbar-nav navbar-right"> 
                         <li><a href="index.jsp"><i class="fa-solid fa-house"></i> Tienda</a></li>
                         <li><a href="tienda.jsp" class="active"><i class="fa-solid fa-store"></i> Inicio</a></li>
-                        <li><a href="carrito.jsp"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                          <%
+                                if (usuario == null || usuario.isEmpty()) {
+                            %>
                         <li><a href="inicioSesion.jsp"><i class="fa-solid fa-user"></i> Iniciar Sesión</a></li>
+                            <%
+                            } else {
+                            %>
+                        <li><a href="carrito.jsp"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                        <li><a href="CerrarSesion"><i class="fa-solid fa-user"></i> Cerrar Sesión</a></li>
+                            <%
+                                }
+                            %>
                     </ul>
                 </div>
             </div>

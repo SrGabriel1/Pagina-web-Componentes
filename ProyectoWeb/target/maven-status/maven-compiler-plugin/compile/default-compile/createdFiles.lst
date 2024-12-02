@@ -4,4 +4,5 @@ controlador\Consultas.class
 servlet\RegistarUsuarios.class
 Modelo\Usuario.class
 servlet\InicioSesion.class
+servlet\CerrarSesion.class
 com\mycompany\proyectoweb\resources\JakartaEE11Resource.class

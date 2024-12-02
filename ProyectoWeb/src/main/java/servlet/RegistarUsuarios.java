@@ -42,7 +42,7 @@ public class RegistarUsuarios extends HttpServlet {
         if (sql.registrar(usuario, clave)) {
             response.sendRedirect("inicioSesion.jsp");
         } else {
-            response.sendRedirect("registro.jsp");
+            response.sendRedirect("registrar.jsp");
         }
 
     }

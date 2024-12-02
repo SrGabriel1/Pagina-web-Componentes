@@ -45,6 +45,7 @@ public class InicioSesion extends HttpServlet {
             objSesion.setAttribute("usuario", usuario);
             response.sendRedirect("index.jsp");
         } else {
+            System.out.println("Entra en el else");
             response.sendRedirect("inicioSesion.jsp");
         }
     }

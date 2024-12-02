@@ -5,6 +5,10 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%
+    HttpSession objSesion = request.getSession(false);
+    String usuario = (String) objSesion.getAttribute("usuario");
+%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +42,24 @@
                                                                   style="width: 60px; height: auto;"></a>
                     <p style="position:relative;top:-20px;left: 100px;font-size: large;">GAMESPLAZA</p>
                 </div>
-
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav navbar-right"> 
+                        <li><a href="index.jsp"><i class="fa-solid fa-house"></i> Tienda</a></li>
+                        <li><a href="tienda.jsp" ><i class="fa-solid fa-store"></i> Inicio</a></li>
+                        <%
+                                if (usuario == null || usuario.isEmpty()) {
+                            %>
+                        <li><a href="inicioSesion.jsp" class="active"><i class="fa-solid fa-user"></i> Iniciar Sesión</a></li>
+                            <%
+                            } else {
+                            %>
+                        <li><a href="carrito.jsp"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                        <li><a href="CerrarSesion"><i class="fa-solid fa-user"></i> Cerrar Sesión</a></li>
+                            <%
+                                }
+                            %>
+                    </ul>
+                </div>
             </div>
         </div>
 
@@ -47,21 +68,23 @@
         <div class="container" style="max-width: 400px; margin-top: 100px;">
             <div class="card" style="background-color: #444; padding: 20px; border-radius: 10px; border: 1px solid #55a335;">
                 <h3 class="text-center" style="color: #55a335; font-weight: bold;">Iniciar Sesión</h3>
-                <form action="#" method="POST">
+                <form action="iniciar" method="POST">
                     <div class="form-group">
                         <label for="usuario" style="color: white;">Usuario</label>
                         <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingresa tu nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="password" style="color: white;">Contraseña</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder="Ingresa tu contraseña" required>
+                        <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
                     </div>
                     <button type="submit" class="btn btn-success btn-block" style="margin-top: 20px;">Iniciar sesión</button>
                     <div class="text-center" style="margin-top: 10px;">
-                        <a href="registro.jsp" style="color: white;">¿No tienes cuenta? Regístrate</a>
+                        <a href="registrar.jsp" style="color: white;">¿No tienes cuenta? Regístrate</a>
                     </div>
                 </form>
             </div>
+            <br>
+            <br>
         </div>
 
         <!-- Footer -->
