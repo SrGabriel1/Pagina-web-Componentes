@@ -1,0 +1,25 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 2 dic 2024, 01:05:59
+    Author     : abelc
+*/
+.navbar-brand {
+    display: flex; 
+    align-items: center; 
+    padding: 0; 
+}
+
+.navbar-brand .img-responsive {
+    width: 60px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.logo-text {
+    font-size: 1.8rem; 
+    color: #fff;
+    margin-top: 5px; 
+}

@@ -1,2 +1,7 @@
 com\mycompany\proyectoweb\JakartaRestConfiguration.class
+controlador\Conexion.class
+controlador\Consultas.class
+servlet\RegistarUsuarios.class
+Modelo\Usuario.class
+servlet\InicioSesion.class
 com\mycompany\proyectoweb\resources\JakartaEE11Resource.class

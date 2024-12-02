@@ -1,0 +1,104 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 2 dic 2024, 04:40:21
+    Author     : abelc
+*/
+
+body {
+    background: #101010;
+    color: #faf9f9;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+}
+navbar-default {
+    background: #202020;
+    border: none;
+    border-left: 6px solid #55a335;
+    padding-right: 40px;
+    margin: 0 !important;
+    position: relative;
+    top: 20px;
+}
+
+.navbar-default .navbar-brand {
+    font-size: 40px;
+    line-height: 40px;
+    padding-top: 4px;
+}
+
+.navbar-default .navbar-nav li a {
+    color: #f2f2f2;
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 40px;
+    transition: all 0.4s ease-in;
+}
+
+.navbar-default .navbar-nav>li>a:hover,
+.navbar-default .navbar-nav>li>a:focus {
+    color: #ffa500;
+}
+
+.navbar-default .navbar-nav>.active>a,
+.navbar-default .navbar-nav>.active>a:hover,
+.navbar-default .navbar-nav>.active>a:focus {
+    color: #ffa500;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-toggle {
+    background: #55a335;
+    border-radius: 0px;
+    border: none;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background: #fff;
+    border-color: transparent;
+}
+
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    background-color: transparent
+}
+.card {
+    border-radius: 10px;
+    border: 1px solid #55a335;  /* Borde verde similar al esquema de color */
+}
+
+.card input[type="text"], .card input[type="password"] {
+    background-color: #555;  /* Fondo gris oscuro para los inputs */
+    border: 1px solid #55a335;  /* Borde verde */
+    color: white;
+}
+
+.card input[type="text"]:focus, .card input[type="password"]:focus {
+    background-color: #444;  /* Fondo más oscuro cuando el campo está enfocado */
+    border-color: #55a335;  /* Mantener el borde verde */
+    outline: none;
+}
+
+.card .form-group label {
+    color: white;
+    font-weight: bold;
+}
+
+.card .form-check-label {
+    color: white;
+}
+
+.btn-success {
+    background-color: #55a335;
+    border: none;
+}
+
+.btn-success:hover {
+    background-color: #4a9c2d;  /* Un verde ligeramente más oscuro cuando se pasa el ratón */
+}
+
+
