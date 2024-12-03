@@ -45,7 +45,7 @@ public class Carrito extends HttpServlet {
         String imagen = request.getParameter("imagen");
         String descripcion = request.getParameter("descripcion");
         int cantidad = Integer.parseInt(request.getParameter("cantidad"));
-        double precioUnitario = Double.parseDouble(request.getParameter("precioUnitario"));
+        float precioUnitario = Float.parseFloat(request.getParameter("precioUnitario"));
 
         // Crear un nuevo producto
         Producto producto = new Producto(imagen, descripcion, precioUnitario);
