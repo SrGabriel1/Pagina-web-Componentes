@@ -135,81 +135,49 @@
     </footer>
 
 
+
     <!-- Modal -->
     <div id="productModal" class="modal ">
         <div class="modal-content">
+            <!-- Botón cerrar -->
             <span class="close-button">&times;</span>
             <div class="modal-body">
+                <!-- Imagen del producto -->
                 <div class="modal-image">
                     <img id="modalImage" src="" alt="Producto" style="width: 100%; height: auto;">
                 </div>
+                <!-- Información del producto -->
                 <div class="modal-info">
                     <h3 id="modalName"></h3>
                     <p id="modalDescription"></p>
                     <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
                     <p><strong>Stock:</strong> <span id="modalStock"></span></p>
-                        <%
-                            if (usuario == null || usuario.isEmpty()) {
-                        %>
+                    <form action="carrito" method="POST">
+                        <% if (usuario != null && !usuario.isEmpty()) { %>
+                        <!-- Mostrar botón "Añadir al carrito" si el usuario está autenticado -->
+                        <button id="botonCarrito" class="btn btn-primary">Añadir al carrito</button>
+                        <% }%>
+                    </form>
 
-                    <% } else {
-                    %>
-                    <button id="addToCartButton">Añadir al carrito</button>
-                    </button>
-                    <%
-                        }
-                    %>
-                </div>
-
-                <!-- Sección de Copyright -->
-                <div class="copyright">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-12 text-center">
-                                <p>Copyright © 2024 GamesPlaza</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                </footer>
-                <!-- Modal -->
-                <div id="productModal" class="modal ">
-                    <div class="modal-content">
-                        <!-- Botón cerrar -->
-                        <span class="close-button">&times;</span>
-                        <div class="modal-body">
-                            <!-- Imagen del producto -->
-                            <div class="modal-image">
-                                <img id="modalImage" src="" alt="Producto" style="width: 100%; height: auto;">
-                            </div>
-                            <!-- Información del producto -->
-                            <div class="modal-info">
-                                <h3 id="modalName"></h3>
-                                <p id="modalDescription"></p>
-                                <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
-                                <p><strong>Stock:</strong> <span id="modalStock"></span></p>
-                                    <%
-                                        if (usuario == null || usuario.isEmpty()) {
-                                    %>
-                                <                    
-                                <%
-                                } else {
-                                %>
-                                button class="btn"> Añadir al carrito
-                                </button>
-                                <%
-                                    }
-                                %>
-                                <button class="btn"> Añadir al carrito
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
                 </div>
             </div>
-            <script src="js/jquery.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/modal.js"></script>
-            </body>
-            </html>
+        </div>
+    </div>
+    <!-- Sección de Copyright -->
+    <div class="copyright">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <p>Copyright © 2024 GamesPlaza</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+</div>
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/modal.js"></script>
+</body>
+</html>

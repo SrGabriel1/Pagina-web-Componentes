@@ -13,14 +13,14 @@ import java.util.ArrayList;
  * @author abelc
  */
 public class ControladorProducto {
-
+    
     public String getProductos() {
         ModeloProducto mp = new ModeloProducto();
         StringBuilder htmlcode = new StringBuilder();
 
         // Obtener todos los productos
         ArrayList<Producto> productos = mp.getAllProducts();
-
+        
         for (Producto producto : productos) {
             htmlcode.append("<div class=\"col-md-3 col-sm-4 col-xs-6 mb-4 product\" data-category=\"")
                     .append(producto.getCategoria()).append("\">")
@@ -37,14 +37,14 @@ public class ControladorProducto {
         System.out.println(htmlcode.toString());
         return htmlcode.toString();
     }
-
+    
     public String getProductosCategoria(String categoria) {
         ModeloProducto mp = new ModeloProducto();
         StringBuilder htmlcode = new StringBuilder();
 
         // Obtener productos por categoría
         ArrayList<Producto> productos = mp.getProductsByCategory(categoria);
-
+        
         for (Producto producto : productos) {
             htmlcode.append("<div class=\"col-md-3 col-sm-4 col-xs-6 mb-4 product\" data-category=\"")
                     .append(producto.getCategoria()).append("\">")
@@ -58,11 +58,16 @@ public class ControladorProducto {
                     .append("<p class=\"text-center\">$").append(producto.getPrecio()).append("</p>")
                     .append("</div>");
         }
-
+        
         return htmlcode.toString();
     }
-
+    
     public Producto getProducto(int id) {
         return new ModeloProducto().getProductById(id);
     }
+
+    public Producto getProducto(String nombre) {
+        return new ModeloProducto().getProductByName(nombre);
+    }
+    
 }

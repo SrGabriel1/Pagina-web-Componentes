@@ -155,4 +155,49 @@ public class ModeloProducto extends Conexion {
         }
         return producto;
     }
+
+    public Producto getProductByName(String NombreProducto) {
+        Producto producto = null;
+        PreparedStatement pst = null;
+        ResultSet rs = null;
+
+        try {
+            // Consulta simple para obtener un producto por su ID
+            String sql = "SELECT * FROM productos WHERE nombre = ?";
+            pst = getConexion().prepareStatement(sql);
+            pst.setString(1, NombreProducto);  // Establecemos el idProducto como parámetro
+            rs = pst.executeQuery();  // Ejecutar la consulta
+
+            if (rs.next()) {
+                // Crear el objeto Producto usando el constructor con parámetros
+                producto = new Producto(
+                        rs.getInt("idProducto"),
+                        rs.getString("nombre"),
+                        rs.getString("descripcion"),
+                        rs.getFloat("precio"),
+                        rs.getInt("stock"),
+                        rs.getString("categoria"),
+                        rs.getString("imagen")
+                );
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en getProductByName: " + e.getMessage());
+        } finally {
+            try {
+                // Cerrar ResultSet y PreparedStatement
+                if (rs != null) {
+                    rs.close();
+                }
+                if (pst != null) {
+                    pst.close();
+                }
+                if (getConexion() != null) {
+                    getConexion().close();
+                }
+            } catch (SQLException e) {
+                System.out.println("Error al cerrar recursos: " + e.getMessage());
+            }
+        }
+        return producto;
+    }
 }

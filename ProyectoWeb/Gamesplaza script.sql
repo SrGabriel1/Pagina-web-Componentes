@@ -19,7 +19,6 @@ CREATE TABLE IF NOT EXISTS producto (
     categoria VARCHAR(100) NOT NULL,      -- Categoría del producto
     imagen VARCHAR(255) NOT NULL          -- Ruta de la imagen del producto
 );
-
 DELIMITER $$
 
 CREATE PROCEDURE obtener_todos_los_productos()
@@ -37,14 +36,13 @@ BEGIN
     WHERE categoria = categoria_param;
 END $$
 
-DELIMITER ;
-
+DELIMITER 
 -- insertar juegos
 insert into producto (nombre, descripcion, precio, stock, categoria, imagen)
 values
 ('Bloodborne', 'Juego de acción y aventura en un mundo oscuro y misterioso', 490.00, 10, 'Juegos', 'images/Categorias/Juegos/bloodborne.jpg'),
 ('Capcom Fighter', 'Juego de lucha con los mejores personajes de Capcom', 990.00, 20, 'Juegos', 'images/Categorias/Juegos/capcomfighter.jpg'),
-('DB Sparkling', 'Juego de lucha que te lleva al mundo de Dragon Ball', 1390.00, 15, 'Juegos', 'images/Categorias/Juegos/dbSparking.jpg'),
+('DB Sparking', 'Juego de lucha que te lleva al mundo de Dragon Ball', 1390.00, 15, 'Juegos', 'images/Categorias/Juegos/dbSparking.jpg'),
 ('Death Rising Deluxe Remsater', 'Remake de un clásico juego de acción', 1290.00, 8, 'Juegos', 'images/Categorias/Juegos/DRDR.jpg'),
 ('Hollow Knight', 'Juego gos', 990.00, 8, 'Juegos', 'images/Categorias/Juegos/hollow.jpg'),
 ('Luigis Mansion', 'Explora mansiones embrujadas con Luigi en esta aventura', 990, 25, 'Juegos', 'images/Categorias/Juegos/luigisMansion.jpg'),
@@ -63,7 +61,11 @@ values
 insert into producto (nombre, descripcion, precio, stock, categoria, imagen)
 values
 ('2DS', 'Consola portátil 2DS de Nintendo, ideal para jugar tus títulos favoritos de 3DS', 1999.00, 10, 'Consolas', 'images/Categorias/Consolas/2ds.jpg'),
-('GameCube', 'Consola retro de Nintendo, conocida por sus juegos icónicos y diseño compacto', 2499.00, 15, 'Consolas', 'images/Categorias/Consolas/gamecube.jpg');
+('GameCube', 'Consola retro de Nintendo, conocida por sus juegos icónicos y diseño compacto', 2499.00, 15, 'Consolas', 'images/Categorias/Consolas/gamecube.jpg'),
+('DSi', 'Consola  portatil Dsi de Nintendo, conocida por sus juegos y lo compacta que es', 3100.00, 10, 'Consolas', 'images/Categorias/Consolas/dsi.png'),
+('DSLite', 'Consola  portatil DsLite  de Nintendo, conocida por sus juegos y mas barata que la Dsi', 2500.00, 5, 'Consolas', 'images/Categorias/Consolas/dsLite.png'),
+('Switch Oled', 'Consola  portatil   de Nintendo, conocida por sus nuevos graficos y los juegos inovadores que tiene', 5500.00, 5, 'Consolas', 'images/Categorias/Consolas/SwitchOled.png'),
+('PlayStation 5', 'Consola de sony, consola que es de la nueva generacion de consolas por la potencia', 7400.00, 5, 'Consolas', 'images/Categorias/Consolas/play5.png');
 
 -- insert accesorios
 insert into producto (nombre, descripcion, precio, stock, categoria, imagen)
@@ -74,4 +76,10 @@ values
 ('Figura Steve', 'Figura coleccionable del personaje Steve del juego Minecraft, para los fans del universo Minecraft', 250.00, 15, 'Accesorios', 'images/Categorias/Accesorios/figuraSteve.jpg'),
 ('Figuras Zelda', 'Set de figuras coleccionables de personajes de The Legend of Zelda, para los amantes de esta franquicia de Nintendo', 400.00, 10, 'Accesorios', 'images/Categorias/Accesorios/figurasZelda.jpg'),
 ('Figuras Fortnite', 'Set de figuras coleccionables de personajes del juego Fortnite, para los fanáticos del juego de batalla real', 300.00, 18, 'Accesorios', 'images/Categorias/Accesorios/fortniteFiguras.jpg'),
+('Amiibo aldeano', 'Amiibo de un aldeano de animal crossing para jugar en el smash bros', 790.00, 18, 'Accesorios', 'images/Categorias/Accesorios/amiibo.png'),
+('Hello kitty', 'Muñeco de Hello kitty vestida de Cinnamoroll', 190.00, 10, 'Accesorios', 'images/Categorias/Accesorios/muñeco.png'),
+('Hello kitty', 'Muñeco de Hello kitty vestida de una rana', 190.00, 5, 'Accesorios', 'images/Categorias/Accesorios/helloKitty.png'),
+('onikuma k18', 'Audifonos para jugar videojuegos', 350.00, 10, 'Accesorios', 'images/Categorias/Accesorios/Audifonos.png'),
+('Pochita', 'Pochita del  anime chainsaw man', 330.00, 2, 'Accesorios', 'images/Categorias/Accesorios/pochita.png'),
+('Llaveros Pokemon', 'Llaveros Pokemon impresos 3d', 100.00, 12, 'Accesorios', 'images/Categorias/Accesorios/Llaveros.png'),
 ('MyMelody Gorras', 'Gorras de My Melody, un accesorio de moda para los fans de este personaje', 190.00, 15, 'Accesorios', 'images/Categorias/Accesorios/MymelodiGorras.jpg');
