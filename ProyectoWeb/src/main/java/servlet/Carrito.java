@@ -89,7 +89,6 @@ public class Carrito extends HttpServlet {
         if (usuario != null && !usuario.isEmpty()) {
             // Obtener el nombre del producto desde el formulario
             String nombreProducto = request.getParameter("productoNombre");
-
             // Crear instancia del controlador de carrito
             ControladorCarrito controladorCarrito = new ControladorCarrito();
 

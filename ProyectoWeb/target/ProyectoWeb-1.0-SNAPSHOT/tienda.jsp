@@ -161,7 +161,7 @@
                         <% if (usuario != null && !usuario.isEmpty()) { %>
                         <!-- Mostrar botón "Añadir al carrito" si el usuario está autenticado -->
                         <button id="botonCarrito" class="btn btn-primary">Añadir al carrito</button>
-                        <% } %>
+                        <% }%>
                     </form>
 
                 </div>
@@ -179,12 +179,8 @@
             document.getElementById('modalPrice').innerText = "$" + price;
             document.getElementById('modalStock').innerText = stock;
             document.getElementById('modalImage').src = imageUrl;
-
             // Asignar solo el nombre del producto al campo oculto
             document.getElementById('productName').value = name;  // Nombre del producto
-
-            // Mostrar el modal
-            document.getElementById('productModal').style.display = 'block';
         }
     </script>
     <!-- Sección de Copyright -->
