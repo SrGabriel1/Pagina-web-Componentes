@@ -1,8 +1,10 @@
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\com\mycompany\proyectoweb\JakartaRestConfiguration.java
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\com\mycompany\proyectoweb\resources\JakartaEE11Resource.java
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\controlador\Conexion.java
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\controlador\Consultas.java
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\Modelo\Usuario.java
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\servlet\CerrarSesion.java
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\servlet\InicioSesion.java
-C:\Users\Gabriel\OneDrive\Documentos\GitHub\ProyectoWeb\ProyectoWeb\src\main\java\servlet\RegistarUsuarios.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\com\mycompany\proyectoweb\JakartaRestConfiguration.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\com\mycompany\proyectoweb\resources\JakartaEE11Resource.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\controlador\Conexion.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\controlador\Consultas.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\Modelo\Producto.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\Modelo\Usuario.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\servlet\Carrito.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\servlet\CerrarSesion.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\servlet\InicioSesion.java
+C:\Users\RAUL EDUARDO GOMEZ\Documents\NetBeansProjects\ProyectoWeb\ProyectoWeb\ProyectoWeb\src\main\java\servlet\RegistarUsuarios.java

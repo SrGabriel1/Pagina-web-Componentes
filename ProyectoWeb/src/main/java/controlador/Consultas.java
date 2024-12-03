@@ -4,15 +4,19 @@
  */
 package controlador;
 
+import Modelo.Producto;
+import jakarta.servlet.http.HttpSession;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-
+import java.util.ArrayList;
+import java.util.List;
 /**
  *
  * @author abelc
  */
 public class Consultas extends Conexion {
 
+ 
     public boolean autenticacion(String usuario, String clave) {
         PreparedStatement pst = null;
         ResultSet rs = null;
@@ -76,4 +80,7 @@ public class Consultas extends Conexion {
         }
         return false;
     }
+    
+
+
 }
