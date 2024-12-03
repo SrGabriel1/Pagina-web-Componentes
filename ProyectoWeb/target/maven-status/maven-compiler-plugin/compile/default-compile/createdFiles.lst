@@ -2,7 +2,9 @@ com\mycompany\proyectoweb\JakartaRestConfiguration.class
 controlador\Conexion.class
 controlador\Consultas.class
 servlet\RegistarUsuarios.class
+servlet\Carrito.class
 Modelo\Usuario.class
+Modelo\Producto.class
 servlet\InicioSesion.class
 servlet\CerrarSesion.class
 com\mycompany\proyectoweb\resources\JakartaEE11Resource.class
