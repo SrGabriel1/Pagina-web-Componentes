@@ -35,6 +35,7 @@ public class idk {
             for (Carrito_Productos producto : productosEnCarrito) {
                 // Imprimir detalles de cada producto en el carrito
                 System.out.println("Nombre: " + producto.getProducto().getNombre());
+                System.out.println("IMg:"+producto.getProducto().getImagen());
                 System.out.println("Descripción: " + producto.getProducto().getDescripcion());
                 System.out.println("Cantidad: " + producto.getCantidad());
                 System.out.println("Precio Unitario: $" + producto.getProducto().getPrecio());

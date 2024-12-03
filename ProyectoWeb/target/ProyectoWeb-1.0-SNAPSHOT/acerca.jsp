@@ -37,8 +37,6 @@
     <body>
 
         <!-- navigation -->
-
-        <!-- navigation -->
         <div class="container">
             <div class="navbar navbar-default navbar-static-top" role="navigation">
                 <div class="navbar-header">
@@ -47,27 +45,27 @@
                         <span class="icon icon-bar"></span>
                         <span class="icon icon-bar"></span>
                     </button>
-                    <a href="index.jsp" class="navbar-brand"><img src="images/logo.jpg" class="img-responsive" alt="logo"
-                                                                  style="width: 60px; height: auto;"></a>
+                    <a href="index.jsp" class="navbar-brand">
+                        <img src="images/logo.jpg" class="img-responsive" alt="logo" style="width: 60px; height: auto;">
+                    </a>
                     <p style="position:relative;top:-20px;left: 100px;font-size: large;">GAMESPLAZA</p>
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.jsp"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                         <li><a href="index.jsp"><i class="fa-solid fa-house"></i> Inicio</a></li>
                         <li><a href="tienda.jsp"><i class="fa-solid fa-store"></i> Tienda</a></li>
                             <%
                                 if (usuario == null || usuario.isEmpty()) {
                             %>
-                        <li><a href="inicioSesion.jsp" ><i class="fa-solid fa-user"></i> Iniciar Sesión</a></li>
+                        <li><a href="inicioSesion.jsp"><i class="fa-solid fa-user"></i> Iniciar Sesión</a></li>
                             <%
                             } else {
                             %>
-                        <li><a href="carrito.jsp"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                        <li><a href="Carrito"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
                         <li><a href="CerrarSesion"><i class="fa-solid fa-user"></i> Cerrar Sesión</a></li>
                             <%
                                 }
                             %>
-                    </ul>
                     </ul>
                 </div>
             </div>

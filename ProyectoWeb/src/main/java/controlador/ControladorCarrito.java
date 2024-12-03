@@ -18,40 +18,40 @@ public class ControladorCarrito {
     private float total; // Variable de clase para almacenar el total
 
     public String cargarCarrito(String usuario) {
-        CarritoModelo cm = new CarritoModelo();
-        StringBuilder htmlcode = new StringBuilder();
-        total = 0.00f;
-        List<Carrito_Productos> productos = cm.getProductsInCart(usuario);
+        System.out.println("usuario que entra al metodo: " + usuario);
+    CarritoModelo cm = new CarritoModelo();
+    StringBuilder htmlcode = new StringBuilder();
+    total = 0.00f;
+    List<Carrito_Productos> productos = cm.getProductsInCart(usuario);
 
-        if (productos.isEmpty()) {
-            htmlcode.append("<tr><td colspan='5'>No hay productos en el carrito.</td></tr>");
-        } else {
-            for (Carrito_Productos cp : productos) {
-                float precioTotal = cp.getProducto().getPrecio() * cp.getCantidad();
-                total += precioTotal; // Actualizamos el total
+    if (productos.isEmpty()) {
+        htmlcode.append("<tr><td colspan='5'>No hay productos en el carrito.</td></tr>");
+    } else {
+        for (Carrito_Productos cp : productos) {
+            float precioTotal = cp.getProducto().getPrecio() * cp.getCantidad();
+            total += precioTotal; // Actualizamos el total
 
-                htmlcode.append("<tr>")
-                        .append("<td><img src=\"").append(cp.getProducto().getImagen()).append("\" alt=\"Producto\" class=\"product-image\"></td>")
-                        .append("<td>")
-                        .append("<p class=\"mb-1 fw-bold\">").append(cp.getProducto().getNombre()).append("</p>")
-                        .append("<p class=\"mb-0\">").append(cp.getProducto().getDescripcion()).append("</p>")
-                        .append("<small class=\"text-muted\">Código: ").append(cp.getProducto().getIdProducto()).append("</small>")
-                        .append("</td>")
-                        .append("<td>")
-                        .append("<form action=\"actualizarCarrito.jsp\" method=\"post\">")
-                        .append("<input type=\"number\" name=\"cantidad\" class=\"form-control w-50 mx-auto\" min=\"1\" value=\"").append(cp.getCantidad()).append("\">")
-                        .append("<button type=\"submit\" class=\"btn btn-success btn-sm mt-2\">Actualizar</button>")
-                        .append("</form>")
-                        .append("</td>")
-                        .append("<td>").append("$").append(String.format("%.2f", cp.getProducto().getPrecio())).append("</td>")
-                        .append("<td>")
-                        .append("<button class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i> Eliminar</button>")
-                        .append("</td>")
-                        .append("</tr>");
-            }
+            htmlcode.append("<tr>")
+                    .append("<td><img src=\"").append(cp.getProducto().getImagen()).append("\" alt=\"Producto\" class=\"product-image\"></td>")
+                    .append("<td>")
+                    .append("<p class=\"mb-1 fw-bold\">").append(cp.getProducto().getNombre()).append("</p>")
+                    .append("<p class=\"mb-0\">").append(cp.getProducto().getDescripcion()).append("</p>")
+                    .append("</td>")
+                    .append("<td>")
+                    .append("<form action=\"actualizarCarrito.jsp\" method=\"post\">")
+                    .append("<input type=\"number\" name=\"cantidad\" class=\"form-control w-50 mx-auto\" min=\"1\" value=\"").append(cp.getCantidad()).append("\">")
+                    .append("<button type=\"submit\" class=\"btn btn-success btn-sm mt-2\">Actualizar</button>")
+                    .append("</form>")
+                    .append("</td>")
+                    .append("<td>").append("$").append(String.format("%.2f", cp.getProducto().getPrecio())).append("</td>")
+                    .append("<td>")
+                    .append("<button class=\"btn btn-danger btn-sm\"><i class=\"fa fa-trash\"></i> Eliminar</button>")
+                    .append("</td>")
+                    .append("</tr>");
         }
+    }
 
-        return htmlcode.toString();
+    return htmlcode.toString();
     }
 
     public boolean agregarProductoAlCarrito(String producto, String usuario) {

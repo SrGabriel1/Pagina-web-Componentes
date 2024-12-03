@@ -45,11 +45,13 @@ public class Carrito extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         // Obtener el nombre de usuario de la sesión
+        System.out.println("ENTRO AL SERVLET");
         HttpSession session = request.getSession();
         String usuario = (String) session.getAttribute("usuario");
 
         // Verificar si el usuario está logueado
         if (usuario != null && !usuario.isEmpty()) {
+            System.out.println("ENTRO AL IF");
             // Crear una instancia de ControladorCarrito para manejar los datos del carrito
             ControladorCarrito controladorCarrito = new ControladorCarrito();
 

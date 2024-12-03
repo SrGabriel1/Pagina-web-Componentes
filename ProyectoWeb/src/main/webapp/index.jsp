@@ -45,8 +45,9 @@ http://www.templatemo.com/tm-468-onetel
                         <span class="icon icon-bar"></span>
                         <span class="icon icon-bar"></span>
                     </button>
-                    <a href="index.jsp" class="navbar-brand"><img src="images/logo.jpg" class="img-responsive" alt="logo"
-                                                                  style="width: 60px; height: auto;"></a>
+                    <a href="index.jsp" class="navbar-brand">
+                        <img src="images/logo.jpg" class="img-responsive" alt="logo" style="width: 60px; height: auto;">
+                    </a>
                     <p style="position:relative;top:-20px;left: 100px;font-size: large;">GAMESPLAZA</p>
                 </div>
                 <div class="collapse navbar-collapse">
@@ -60,7 +61,7 @@ http://www.templatemo.com/tm-468-onetel
                             <%
                             } else {
                             %>
-                        <li><a href="carrito.jsp"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                        <li><a href="Carrito"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
                         <li><a href="CerrarSesion"><i class="fa-solid fa-user"></i> Cerrar Sesión</a></li>
                             <%
                                 }

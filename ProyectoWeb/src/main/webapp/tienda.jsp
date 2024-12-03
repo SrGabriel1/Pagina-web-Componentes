@@ -42,7 +42,7 @@
         <link rel="stylesheet" href="css/nivo_themes/default/default.css">
     </head>
 
-    <!-- Navigation -->
+    <!-- navigation -->
     <div class="container">
         <div class="navbar navbar-default navbar-static-top" role="navigation">
             <div class="navbar-header">
@@ -51,7 +51,9 @@
                     <span class="icon icon-bar"></span>
                     <span class="icon icon-bar"></span>
                 </button>
-                <a href="index.jsp" class="navbar-brand"><img src="images/logo.jpg" class="img-responsive" alt="logo" style="width: 60px; height: auto;"></a>
+                <a href="index.jsp" class="navbar-brand">
+                    <img src="images/logo.jpg" class="img-responsive" alt="logo" style="width: 60px; height: auto;">
+                </a>
                 <p style="position:relative;top:-20px;left: 100px;font-size: large;">GAMESPLAZA</p>
             </div>
             <div class="collapse navbar-collapse">
@@ -65,7 +67,7 @@
                         <%
                         } else {
                         %>
-                    <li><a href="carrito.jsp"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
+                    <li><a href="Carrito"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
                     <li><a href="CerrarSesion"><i class="fa-solid fa-user"></i> Cerrar Sesión</a></li>
                         <%
                             }
@@ -167,7 +169,7 @@
         </div>
     </div>
     <script>
-        
+
         // Función para abrir el modal y cargar los detalles del producto
         function openProductModal(name, description, price, stock, imageUrl) {
             console.log("openProductModal invoked", name, description, price, stock, imageUrl); // Agrega esto para depuración
