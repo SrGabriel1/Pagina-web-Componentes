@@ -34,7 +34,7 @@ public class ControladorProducto {
                     .append("<p class=\"text-center\">$").append(producto.getPrecio()).append("</p>")
                     .append("</div>");
         }
-
+        System.out.println(htmlcode.toString());
         return htmlcode.toString();
     }
 

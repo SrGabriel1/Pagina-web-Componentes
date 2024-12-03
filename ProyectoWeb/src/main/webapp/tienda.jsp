@@ -12,10 +12,10 @@
     // Obtener la sesión
     HttpSession objSesion = request.getSession(false);
     String usuario = (String) objSesion.getAttribute("usuario");
-    
+
     // Crear una instancia del controlador
     ControladorProducto controlador = new ControladorProducto();
-    
+
     // Llamar al método para obtener los productos (por defecto todos)
     String categoria = request.getParameter("categoria");
     String productosHTML = "";
@@ -63,7 +63,7 @@
                         %>
                     <li><a href="inicioSesion.jsp"><i class="fa-solid fa-user"></i> Iniciar Sesión</a></li>
                         <%
-                            } else {
+                        } else {
                         %>
                     <li><a href="carrito.jsp"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
                     <li><a href="CerrarSesion"><i class="fa-solid fa-user"></i> Cerrar Sesión</a></li>
@@ -95,7 +95,7 @@
 
             <!-- Productos dinámicos cargados desde el controlador -->
             <div class="row mt30">
-                <%= productosHTML %> <!-- Aquí se muestran los productos generados dinámicamente -->
+                <%= productosHTML%> <!-- Aquí se muestran los productos generados dinámicamente -->
             </div>
         </div>
     </div>
@@ -133,6 +133,8 @@
             </div>
         </div>
     </footer>
+
+
     <!-- Modal -->
     <div id="productModal" class="modal ">
         <div class="modal-content">
@@ -146,47 +148,68 @@
                     <p id="modalDescription"></p>
                     <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
                     <p><strong>Stock:</strong> <span id="modalStock"></span></p>
+                        <%
+                            if (usuario == null || usuario.isEmpty()) {
+                        %>
+
+                    <% } else {
+                    %>
                     <button id="addToCartButton">Añadir al carrito</button>
+                    </button>
+                    <%
+                        }
+                    %>
+                </div>
 
-            </div>
+                <!-- Sección de Copyright -->
+                <div class="copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Copyright © 2024 GamesPlaza</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </footer>
+                <!-- Modal -->
+                <div id="productModal" class="modal ">
+                    <div class="modal-content">
+                        <!-- Botón cerrar -->
+                        <span class="close-button">&times;</span>
+                        <div class="modal-body">
+                            <!-- Imagen del producto -->
+                            <div class="modal-image">
+                                <img id="modalImage" src="" alt="Producto" style="width: 100%; height: auto;">
+                            </div>
+                            <!-- Información del producto -->
+                            <div class="modal-info">
+                                <h3 id="modalName"></h3>
+                                <p id="modalDescription"></p>
+                                <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
+                                <p><strong>Stock:</strong> <span id="modalStock"></span></p>
+                                    <%
+                                        if (usuario == null || usuario.isEmpty()) {
+                                    %>
+                                <                    
+                                <%
+                                } else {
+                                %>
+                                button class="btn"> Añadir al carrito
+                                </button>
+                                <%
+                                    }
+                                %>
+                                <button class="btn"> Añadir al carrito
+                                </button>
+                            </div>
 
-            <!-- Sección de Copyright -->
-            <div class="copyright">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-md-12 text-center">
-                            <p>Copyright © 2024 GamesPlaza</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </footer>
-        <!-- Modal -->
-        <div id="productModal" class="modal ">
-            <div class="modal-content">
-                <!-- Botón cerrar -->
-                <span class="close-button">&times;</span>
-                <div class="modal-body">
-                    <!-- Imagen del producto -->
-                    <div class="modal-image">
-                        <img id="modalImage" src="" alt="Producto" style="width: 100%; height: auto;">
-                    </div>
-                    <!-- Información del producto -->
-                    <div class="modal-info">
-                        <h3 id="modalName"></h3>
-                        <p id="modalDescription"></p>
-                        <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
-                        <p><strong>Stock:</strong> <span id="modalStock"></span></p>
-                       <button class="btn"> Añadir al carrito
-</button>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="js/jquery.js"></script>
-    <script src="js/bootstrap.min.js"></script>
-    <script src="js/modal.js"></script>
-</body>
-</html>
+            <script src="js/jquery.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/modal.js"></script>
+            </body>
+            </html>
