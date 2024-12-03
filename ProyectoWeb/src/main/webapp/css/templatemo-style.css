@@ -548,16 +548,44 @@ footer .col-md-6 p {
 }
 
 /* Botón de añadir al carrito */
-button#addToCartButton {
-    background-color: #55a335;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
+.btn {
+ padding: 1.1em 2em;
+ background: none;
+ border: 2px solid #fff;
+ font-size: 15px;
+ color: #d8d8d8;
+ cursor: pointer;
+ position: relative;
+ overflow: hidden;
+ transition: all 0.3s;
+ border-radius: 12px;
+ background-color: #b0b0b0;
+ font-weight: bolder;
+ box-shadow: 0 2px 0 2px #000;
 }
 
-button#addToCartButton:hover {
-    background-color: #55a335;
+.btn:before {
+ content: "";
+ position: absolute;
+ width: 150px;
+ height: 120%;
+ background-color: #ff6700;
+ top: 50%;
+ transform: skewX(30deg) translate(-150%, -50%);
+ transition: all 0.5s;
 }
+
+.btn:hover {
+ background-color:#83c87c;
+ color: #fff;
+ box-shadow: 0 2px 0 2px #0d3b66;
+}
+
+.btn:hover::before {
+ transform: skewX(30deg) translate(150%, -50%);
+ transition-delay: 0.1s;
+}
+
+.btn:active {
+ transform: scale(0.9);
+}  
