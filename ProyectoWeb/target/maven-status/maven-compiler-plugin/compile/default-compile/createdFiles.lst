@@ -5,6 +5,7 @@ servlet\Carrito.class
 Prueba2.class
 Modelo\ModeloProducto.class
 Modelo\Usuario.class
+controlador\EliminarProducto.class
 Modelo\CarritoModelo.class
 com\mycompany\proyectoweb\resources\JakartaEE11Resource.class
 prueba.class

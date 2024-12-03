@@ -99,4 +99,34 @@ public class CarritoModelo extends Conexion {
             }
         }
     }
+    public boolean eliminarProductoDelCarrito(String productoId, String usuario) {
+    PreparedStatement pst = null;
+    try {
+        // Llamada al procedimiento almacenado para eliminar el producto del carrito
+        String sql = "CALL eliminarProductoDelCarrito(?, ?)";
+        pst = getConexion().prepareStatement(sql);
+        pst.setString(1, productoId); // ID del producto a eliminar
+        pst.setString(2, usuario);    // Usuario propietario del carrito
+
+        int filasAfectadas = pst.executeUpdate(); // Ejecutar el procedimiento almacenado
+
+        // Si al menos una fila fue afectada, la eliminación fue exitosa
+        return filasAfectadas > 0;
+    } catch (SQLException e) {
+        System.out.println("Error al eliminar producto del carrito: " + e.getMessage());
+        return false;
+    } finally {
+        try {
+            // Cerrar el PreparedStatement y la conexión
+            if (pst != null) {
+                pst.close();
+            }
+            if (getConexion() != null) {
+                getConexion().close();
+            }
+        } catch (SQLException e) {
+            System.out.println("Error al cerrar recursos: " + e.getMessage());
+        }
+    }
+}
 }

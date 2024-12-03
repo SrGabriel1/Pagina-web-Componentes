@@ -154,7 +154,7 @@
                     <p id="modalDescription"></p>
                     <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
                     <p><strong>Stock:</strong> <span id="modalStock"></span></p>
-                    <form action="Carrito" method="POST">
+                       <form action="Carrito" method="POST" onClick="">
                         <!-- Campo oculto para el nombre del producto -->
                         <input type="hidden" id="productName" name="productoNombre">
 
@@ -183,6 +183,7 @@
             document.getElementById('productName').value = name;  // Nombre del producto
         }
     </script>
+  
     <!-- Sección de Copyright -->
     <div class="copyright">
         <div class="container">
