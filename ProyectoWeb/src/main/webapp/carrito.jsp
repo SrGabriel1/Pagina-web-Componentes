@@ -1,16 +1,11 @@
-<%@page import="java.util.List"%>
-<%@page import="Modelo.Producto"%>
-<%@page import="Modelo.Producto"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <%
-    HttpSession objSesion = request.getSession(false);
+  HttpSession objSesion = request.getSession(false);
     String usuario = (String) objSesion.getAttribute("usuario");
-    List<Producto> carrito = (List<Producto>) session.getAttribute("carrito");
-
 %>
-<!DOCTYPE html>
-<html lang="en">
 
+<!DOCTYPE html>
+<html lang="es">
     <head>
         <title>GamePlaza</title>
         <meta charset="UTF-8">
@@ -38,81 +33,29 @@
     </head>
 
     <body>
-        <!-- Navigation Bar -->
         <div class="container">
-            <div class="navbar navbar-default navbar-static-top" role="navigation">
-                <div class="navbar-header">
-                    <button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                        <span class="icon icon-bar"></span>
-                        <span class="icon icon-bar"></span>
-                        <span class="icon icon-bar"></span>
-                    </button>
-                    <a href="index.jsp" class="navbar-brand"><img src="images/logo.jpg" class="img-responsive" alt="logo" style="width: 60px; height: auto;"></a>
-                    <p style="position:relative;top:-20px;left: 100px;font-size: large;">GAMESPLAZA</p>
-                </div>
-                <div class="collapse navbar-collapse">
-                    <ul class="nav navbar-nav navbar-right">
-                        <li><a href="index.jsp"><i class="fa-solid fa-house"></i> Tienda</a></li>
-                        <li><a href="tienda.jsp"><i class="fa-solid fa-store"></i> Inicio</a></li>
-                            <%                        if (usuario == null || usuario.isEmpty()) {
-                            %>
-                        <li><a href="inicioSesion.jsp"><i class="fa-solid fa-user"></i> Iniciar SesiÃ³n</a></li>
-                            <%
-                            } else {
-                            %>
-                        <li><a href="carrito.jsp" class="active"><i class="fa-solid fa-cart-shopping"></i> Carrito</a></li>
-                        <li><a href="CerrarSesion"><i class="fa-solid fa-user"></i> Cerrar SesiÃ³n</a></li>
-                            <%
-                                }
-                            %>
-                    </ul>
-                </div>
-            </div>
-        </div>
-
-        <!-- Carrito -->
-        <div class="container my-5">
             <h1 class="mb-4">Carrito de Compras</h1>
+
+            <!-- Verificar si existen productos -->
             <table class="table table-dark table-bordered text-center align-middle">
                 <thead>
                     <tr>
                         <th>Imagen</th>
-                        <th>DescripciÃ³n del producto</th>
+                        <th>Descripción del Producto</th>
                         <th>Cantidad</th>
-                        <th>Precio unitario</th>
+                        <th>Precio Unitario</th>
                         <th>Eliminar</th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            <img src="https://via.placeholder.com/100" alt="Producto" class="product-image">
-                        </td>
-                        <td>
-                            <p class="mb-1 fw-bold">MONITOR GAMER GIGABYTE G27FC</p>
-                            <p class="mb-0">27" / 180HZ / 1080P / 1920x1080</p>
-                            <p class="mb-0">VA / 1500R / 1MS / FreeSync Premium</p>
-                            <small class="text-muted">CÃ³digo: mg-g034</small>
-                        </td>
-                        <td>
-                            <form action="actualizarCarrito.jsp" method="post">
-                                <input type="number" name="cantidad" class="form-control w-50 mx-auto" min="1" value="1">
-                                <button type="submit" class="btn btn-success btn-sm mt-2">Actualizar</button>
-                            </form>
-                        </td>
-                        <td>$3,199.00</td>
-                        <td>
-                            <button class="btn btn-danger btn-sm">
-                                <i class="fa fa-trash"></i> Eliminar
-                            </button>
-                        </td>
-                    </tr>
+                    <!-- Mostrar productos dinámicamente -->
+                    <%= request.getAttribute("productosHTML") %> <!-- Esto cargará los productos del carrito -->
                 </tbody>
             </table>
 
-            <!-- Total -->
+            <!-- Mostrar el total de los productos en el carrito -->
             <div class="text-end">
-                <h3>Total: $3,199.00</h3>
+                <h3>Total: $<%= request.getAttribute("total") != null ? request.getAttribute("total") : 0.00 %></h3>
                 <button class="btn btn-primary">Proceder a Pagar</button>
             </div>
         </div>
@@ -121,8 +64,6 @@
         <footer>
             <div class="container">
                 <div class="row">
-
-                    <!-- SecciÃ³n de texto "Nosotros" y "Contacto" -->
                     <div class="col-md-6 col-sm-6">
                         <p>Nosotros:</p>
                         <ul class="footer-links">
@@ -131,33 +72,28 @@
                         </ul>
                     </div>
 
-                    <!-- SecciÃ³n de redes sociales -->
                     <div class="col-md-6 col-sm-6">
-                        <p>VisÃ­tanos:</p>
+                        <p>Visítanos:</p>
                         <ul class="social-icons">
                             <li><a href="https://www.facebook.com/gamesplazaobregon/?locale=es_LA" class="fa-brands fa-facebook"></a></li>
                             <li><a href="https://www.instagram.com/gamesplaza/" class="fa-brands fa-instagram"></a></li>
                             <li><a href="https://www.tiktok.com/@gamesplazamx" class="fa-brands fa-tiktok"></a></li>
                         </ul>
                     </div>
-
                 </div>
             </div>
 
-            <!-- Copyright -->
             <div class="copyright">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12 text-center">
-                            <p>Copyright Â© 2024 GamesPlaza</p>
+                            <p>Copyright © 2024 GamesPlaza</p>
                         </div>
                     </div>
                 </div>
             </div>
         </footer>
 
-        <!-- JS -->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
     </body>
-
 </html>

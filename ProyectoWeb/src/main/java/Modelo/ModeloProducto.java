@@ -163,7 +163,7 @@ public class ModeloProducto extends Conexion {
 
         try {
             // Consulta simple para obtener un producto por su ID
-            String sql = "SELECT * FROM productos WHERE nombre = ?";
+            String sql = "SELECT * FROM producto WHERE nombre = ?";
             pst = getConexion().prepareStatement(sql);
             pst.setString(1, NombreProducto);  // Establecemos el idProducto como parámetro
             rs = pst.executeQuery();  // Ejecutar la consulta

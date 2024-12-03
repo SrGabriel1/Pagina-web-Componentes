@@ -152,17 +152,39 @@
                     <p id="modalDescription"></p>
                     <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
                     <p><strong>Stock:</strong> <span id="modalStock"></span></p>
-                    <form action="carrito" method="POST">
+                    <form action="Carrito" method="POST">
+                        <!-- Campo oculto para el nombre del producto -->
+                        <input type="hidden" id="productName" name="productoNombre">
+
                         <% if (usuario != null && !usuario.isEmpty()) { %>
                         <!-- Mostrar botón "Añadir al carrito" si el usuario está autenticado -->
                         <button id="botonCarrito" class="btn btn-primary">Añadir al carrito</button>
-                        <% }%>
+                        <% } %>
                     </form>
 
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        
+        // Función para abrir el modal y cargar los detalles del producto
+        function openProductModal(name, description, price, stock, imageUrl) {
+            console.log("openProductModal invoked", name, description, price, stock, imageUrl); // Agrega esto para depuración
+            // Asignar la información al modal
+            document.getElementById('modalName').innerText = name;
+            document.getElementById('modalDescription').innerText = description;
+            document.getElementById('modalPrice').innerText = "$" + price;
+            document.getElementById('modalStock').innerText = stock;
+            document.getElementById('modalImage').src = imageUrl;
+
+            // Asignar solo el nombre del producto al campo oculto
+            document.getElementById('productName').value = name;  // Nombre del producto
+
+            // Mostrar el modal
+            document.getElementById('productModal').style.display = 'block';
+        }
+    </script>
     <!-- Sección de Copyright -->
     <div class="copyright">
         <div class="container">

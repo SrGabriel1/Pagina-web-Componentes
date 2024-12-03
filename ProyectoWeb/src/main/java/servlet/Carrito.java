@@ -5,6 +5,7 @@
 package servlet;
 
 import Modelo.Producto;
+import controlador.ControladorCarrito;
 import controlador.ControladorProducto;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -43,17 +44,29 @@ public class Carrito extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Obtener el nombre de usuario de la sesión
         HttpSession session = request.getSession();
+        String usuario = (String) session.getAttribute("usuario");
 
-        // Obtener la lista de productos del carrito desde la sesión
-        List<Producto> carrito = (List<Producto>) session.getAttribute("carrito");
-        if (carrito == null) {
-            carrito = new ArrayList<>();
+        // Verificar si el usuario está logueado
+        if (usuario != null && !usuario.isEmpty()) {
+            // Crear una instancia de ControladorCarrito para manejar los datos del carrito
+            ControladorCarrito controladorCarrito = new ControladorCarrito();
+
+            // Obtener el HTML de los productos y el total
+            String productosHTML = controladorCarrito.cargarCarrito(usuario);
+            float total = controladorCarrito.getTotal();  // Si tienes un método para calcular el total
+
+            // Pasar los datos al JSP
+            request.setAttribute("productosHTML", productosHTML);
+            request.setAttribute("total", total);
+
+            // Redirigir al carrito.jsp
+            request.getRequestDispatcher("carrito.jsp").forward(request, response);
+        } else {
+            // Redirigir a la página de inicio de sesión si no está logueado
+            response.sendRedirect("index.jsp");
         }
-
-        // Agregar la lista de productos como atributo para usarla en JSP
-        session.setAttribute("carrito", carrito);
-
     }
 
     /**
@@ -67,42 +80,41 @@ public class Carrito extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        // Obtener la sesión del usuario
         HttpSession session = request.getSession();
+        String usuario = (String) session.getAttribute("usuario");
 
-        List<Producto> carrito = (List<Producto>) session.getAttribute("carrito");
-        if (carrito == null) {
-            carrito = new ArrayList<>();
-        }
-
-        try {
+        if (usuario != null && !usuario.isEmpty()) {
             // Obtener el nombre del producto desde el formulario
-            String nombreProducto = request.getParameter("modalName");
+            String nombreProducto = request.getParameter("productoNombre");
 
-            // Consultar la base de datos para obtener el producto
-            ControladorProducto controlador = new ControladorProducto();
-            Producto producto = controlador.getProducto(nombreProducto);
+            // Crear instancia del controlador de carrito
+            ControladorCarrito controladorCarrito = new ControladorCarrito();
 
-            // Validar que el producto exista
-            if (producto != null) {
-                carrito.add(producto); // Agregar al carrito
+            // Intentar agregar el producto al carrito
+            boolean productoAgregado = controladorCarrito.agregarProductoAlCarrito(nombreProducto, usuario);
+
+            // Si el producto se agregó correctamente, redirigir al carrito
+            if (productoAgregado) {
+                response.sendRedirect("carrito.jsp");
+            } else {
+                // Si ocurre un error, redirigir a la tienda o mostrar un mensaje de error
+                response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al agregar el producto al carrito.");
             }
-
-            // Guardar la lista del carrito en la sesión
-            session.setAttribute("carrito", carrito);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al procesar el producto.");
+        } else {
+            // Si el usuario no está autenticado, redirigir a la página de inicio de sesión
+            response.sendRedirect("inicioSesion.jsp");
         }
     }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
+
+/**
+ * Returns a short description of the servlet.
+ *
+ * @return a String containing servlet description
+ */
+@Override
+public String getServletInfo() {
         return "Servlet que gestiona el carrito de compras";
     }// </editor-fold>
 

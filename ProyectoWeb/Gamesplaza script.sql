@@ -10,6 +10,7 @@ CREATE TABLE IF NOT EXISTS usuario (
 );
 
 
+
 CREATE TABLE IF NOT EXISTS producto (
     idProducto INT AUTO_INCREMENT PRIMARY KEY,   -- ID único para cada producto
     nombre VARCHAR(255) NOT NULL,  -- Nombre del producto
@@ -19,6 +20,35 @@ CREATE TABLE IF NOT EXISTS producto (
     categoria VARCHAR(100) NOT NULL,      -- Categoría del producto
     imagen VARCHAR(255) NOT NULL          -- Ruta de la imagen del producto
 );
+
+CREATE TABLE IF NOT EXISTS carrito (
+    idCarrito INT AUTO_INCREMENT PRIMARY KEY,   -- ID único del carrito
+    id_usuario INT NOT NULL,             -- Relación con el usuario
+    FOREIGN KEY (id_usuario) REFERENCES usuario(idUsuario) -- Relación con la tabla usuarios
+);
+
+-- Crear la tabla de productos en el carrito
+CREATE TABLE IF NOT EXISTS carrito_productos (
+    idCarritoProductos INT AUTO_INCREMENT PRIMARY KEY,   -- ID único de la relación
+    id_carrito INT NOT NULL,              -- Relación con el carrito
+    id_producto INT NOT NULL,             -- Relación con el producto
+    cantidad INT NOT NULL,                -- Cantidad del producto en el carrito
+    FOREIGN KEY (id_carrito) REFERENCES carrito(idCarrito),   -- Relación con el carrito
+    FOREIGN KEY (id_producto) REFERENCES producto(idProducto) 
+);
+
+DELIMITER $$
+
+CREATE TRIGGER after_user_insert
+AFTER INSERT ON usuario
+FOR EACH ROW
+BEGIN
+    INSERT INTO carrito (id_usuario) VALUES (NEW.idUsuario);
+END $$
+
+DELIMITER ;
+
+
 DELIMITER $$
 
 CREATE PROCEDURE obtener_todos_los_productos()
@@ -37,6 +67,74 @@ BEGIN
 END $$
 
 DELIMITER 
+DELIMITER $$
+
+CREATE PROCEDURE obtener_productos_carrito_usuario(IN nombre_usuario VARCHAR(255))
+BEGIN
+    -- Declarar una variable para el ID del usuario
+    DECLARE id_usuario INT;
+
+    -- Obtener el id_usuario de la tabla usuario con el nombre proporcionado
+    SELECT idUsuario INTO id_usuario
+    FROM usuario
+    WHERE nombre = nombre_usuario
+    LIMIT 1;
+
+    -- Verificar si el id_usuario fue encontrado
+    IF id_usuario IS NOT NULL THEN
+        -- Obtener solo los productos en el carrito del usuario (sin descripción ni id_carrito)
+        SELECT p.idProducto, p.precio, cp.cantidad
+        FROM carrito c
+        JOIN carrito_productos cp ON c.idCarrito = cp.id_carrito
+        JOIN producto p ON cp.id_producto = p.idProducto
+        WHERE c.id_usuario = id_usuario;
+    ELSE
+        -- Si el usuario no existe, devolver un conjunto vacío
+        SELECT NULL AS idProducto, NULL AS precio, NULL AS cantidad;
+    END IF;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE agregarProductoAlCarrito(
+    IN p_idProducto INT,
+    IN p_usuario VARCHAR(255)
+)
+BEGIN
+    DECLARE v_idCarrito INT;
+    DECLARE v_existeProducto INT;
+
+    -- Obtener el id del carrito del usuario
+    SELECT idCarrito INTO v_idCarrito
+    FROM carrito
+    WHERE id_usuario = (SELECT idUsuario FROM usuario WHERE nombre = p_usuario)
+    LIMIT 1;
+
+    -- Verificar si el producto ya existe en el carrito
+    SELECT COUNT(*) INTO v_existeProducto
+    FROM carrito_productos
+    WHERE id_carrito = v_idCarrito AND id_producto = p_idProducto;
+
+    -- Si el producto ya existe en el carrito, aumentamos la cantidad
+    IF v_existeProducto > 0 THEN
+        UPDATE carrito_productos
+        SET cantidad = cantidad + 1
+        WHERE id_carrito = v_idCarrito AND id_producto = p_idProducto;
+    ELSE
+        -- Si no existe el producto, lo insertamos con cantidad 1
+        INSERT INTO carrito_productos (id_carrito, id_producto, cantidad)
+        VALUES (v_idCarrito, p_idProducto, 1);
+    END IF;
+END $$
+
+DELIMITER ;
+
+
+
+
+
 -- insertar juegos
 insert into producto (nombre, descripcion, precio, stock, categoria, imagen)
 values
