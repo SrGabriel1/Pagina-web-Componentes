@@ -20,6 +20,25 @@ CREATE TABLE IF NOT EXISTS producto (
     imagen VARCHAR(255) NOT NULL          -- Ruta de la imagen del producto
 );
 
+DELIMITER $$
+
+CREATE PROCEDURE obtener_todos_los_productos()
+BEGIN
+    SELECT * FROM producto;
+END $$
+
+DELIMITER ;
+
+DELIMITER $$
+
+CREATE PROCEDURE obtener_productos_por_categoria(IN categoria_param VARCHAR(100))
+BEGIN
+    SELECT * FROM producto
+    WHERE categoria = categoria_param;
+END $$
+
+DELIMITER ;
+
 -- insertar juegos
 insert into producto (nombre, descripcion, precio, stock, categoria, imagen)
 values
