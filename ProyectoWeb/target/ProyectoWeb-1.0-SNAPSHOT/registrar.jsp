@@ -6,6 +6,7 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%
+      String error = (String) request.getAttribute("error");
     HttpSession objSesion = request.getSession(false);
     String usuario = (String) objSesion.getAttribute("usuario");
 %>
@@ -67,23 +68,29 @@
         <div class="container" style="max-width: 400px; margin-top: 100px;">
             <div class="card" style="background-color: #444; padding: 20px; border-radius: 10px; border: 1px solid #55a335;">
                 <h3 class="text-center" style="color: #55a335; font-weight: bold;">Crear Cuenta</h3>
+
+                <% if (error != null) { %>
+                <div class="alert alert-danger" role="alert">
+                    <%= error %>
+                </div>
+                <% } %>
+
                 <form action="nuevoUsuario" method="POST">
                     <div class="form-group">
                         <label for="usuario" style="color: white;">Usuario</label>
-                        <input type="text" class="form-control" id="usuario" name="usuario" placeholder="Ingresa tu nombre" required>
+                        <input type="text" class="form-control" id="nombre" name="usuario" placeholder="Ingresa tu nombre" required>
                     </div>
                     <div class="form-group">
-                        <label for="password" style="color: white;">Contraseña</label>
+                        <label for="contrasena" style="color: white;">Contraseña</label>
                         <input type="password" class="form-control" id="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
                     </div>
                     <button type="submit" class="btn btn-success btn-block" style="margin-top: 20px;">Registrar</button>
                     <div class="text-center" style="margin-top: 10px;">
-                        <a href="CerrarSesion.java" style="color: white;">¿Ya tienes cuenta? Inicia sesión</a>
+                        <a href="inicioSesion.jsp" style="color: white;">¿Ya tienes cuenta? Inicia sesión</a>
                     </div>
                 </form>
             </div>
-            <br>
-            <br>
+            <br><br>
         </div>
 
         <!-- Footer -->

@@ -42,7 +42,9 @@ public class RegistarUsuarios extends HttpServlet {
         if (sql.registrar(usuario, clave)) {
             response.sendRedirect("inicioSesion.jsp");
         } else {
-            response.sendRedirect("registrar.jsp");
+            // Pasamos el mensaje de error a la solicitud
+            request.setAttribute("error", "Este nombre de usuario ya está registrado.");
+            request.getRequestDispatcher("registrar.jsp").forward(request, response); // Enviamos la solicitud a registrar.jsp
         }
 
     }

@@ -75,7 +75,7 @@
                     <button class="btn btn-primary filter-btn" data-category="todos">Todos</button>
                     <button class="btn btn-primary filter-btn" data-category="consolas">Consolas</button>
                     <button class="btn btn-primary filter-btn" data-category="juegos">Juegos</button>
-                    <button class="btn btn-primary filter-btn" data-category="figuras">Figuras</button>
+                    <button class="btn btn-primary filter-btn" data-category="accesorios">Accesorios y figuras</button>
                 </div>
 
                 <div class="row mt30">
@@ -88,7 +88,7 @@
                     </div>
 
                     <!-- Producto 2: Figuras -->
-                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="figuras">
+                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="accesorios">
                         <a href="#" class="product-link" data-name="Figuras de Ultra Street Fighter 2" data-description="Colección de figuras inspiradas en Ultra Street Fighter 2." data-stock="10" data-price="$25 USD">
                             <img src="images/portfolio-img2.jpg" alt="Figuras de Ultra Street Fighter 2" class="img-fluid" style="object-fit: cover; height: 200px; width: 100%;">
                         </a>
@@ -104,7 +104,7 @@
                     </div>
 
                     <!-- Producto 4: Figuras -->
-                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="figuras">
+                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="accesorios">
                         <a href="#" class="product-link" data-name="The Simpsons Figuras" data-description="Figuras coleccionables de los personajes de Los Simpsons." data-stock="12" data-price="$30 USD">
                             <img src="images/portfolio-img5.jpg" alt="The Simpsons figuras" class="img-fluid" style="object-fit: cover; height: 200px; width: 100%;">
                         </a>
@@ -112,7 +112,7 @@
                     </div>
 
                     <!-- Producto 5: Figuras -->
-                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="figuras">
+                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="accesorios">
                         <a href="#" class="product-link" data-name="Figura de Zelda" data-description="Figura coleccionable de Zelda en alta calidad." data-stock="8" data-price="$35 USD">
                             <img src="images/portfolio-img9.jpg" alt="Figura de Zelda" class="img-fluid" style="object-fit: cover; height: 200px; width: 100%;">
                         </a>
@@ -128,7 +128,7 @@
                     </div>
 
                     <!-- Producto 7: Figuras -->
-                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="figuras">
+                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="accesorios">
                         <a href="#" class="product-link" data-name="Figura de Minecraft" data-description="Figura coleccionable de un personaje de Minecraft." data-stock="18" data-price="$20 USD">
                             <img src="images/portfolio-img8.jpg" alt="Figura de Minecraft" class="img-fluid" style="object-fit: cover; height: 200px; width: 100%;">
                         </a>
@@ -136,7 +136,7 @@
                     </div>
 
                     <!-- Producto 8: Figuras -->
-                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="figuras">
+                    <div class="col-md-3 col-sm-4 col-xs-6 mb-4 product" data-category="accesorios">
                         <a href="#" class="product-link" data-name="Fortnite Figuras" data-description="Figuras inspiradas en los personajes de Fortnite." data-stock="10" data-price="$30 USD">
                             <img src="images/portfolio-img11.jpg" alt="Fortnite figuras" class="img-fluid" style="object-fit: cover; height: 200px; width: 100%;">
                         </a>

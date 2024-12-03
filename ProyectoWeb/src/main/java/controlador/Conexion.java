@@ -13,8 +13,9 @@ import java.sql.SQLException;
  * @author abelc
  */
 public class Conexion {
-        private static final String USERNAME = "root";
-    private static final String PASSWORD = "12344";
+
+    private static final String USERNAME = "root";
+    private static final String PASSWORD = "root";
     private static final String HOST = "localhost";
     private static final String PORT = "3306";
     private static final String DATABASE = "gamesplaza";
