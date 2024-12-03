@@ -199,7 +199,8 @@
                         <p id="modalDescription"></p>
                         <p><strong>Precio:</strong> <span id="modalPrice"></span></p>
                         <p><strong>Stock:</strong> <span id="modalStock"></span></p>
-                        <button id="addToCartButton">Añadir al carrito</button>
+                       <button class="btn"> Añadir al carrito
+</button>
                     </div>
                 </div>
             </div>
