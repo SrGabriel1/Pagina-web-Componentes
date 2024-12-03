@@ -1,8 +1,11 @@
 com\mycompany\proyectoweb\JakartaRestConfiguration.class
 controlador\Conexion.class
 controlador\Consultas.class
+controlador\ControladorProducto.class
 servlet\RegistarUsuarios.class
+Modelo\ModeloProducto.class
 Modelo\Usuario.class
+Modelo\Producto.class
 servlet\InicioSesion.class
 servlet\CerrarSesion.class
 com\mycompany\proyectoweb\resources\JakartaEE11Resource.class
