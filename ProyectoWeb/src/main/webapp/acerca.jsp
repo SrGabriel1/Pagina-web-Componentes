@@ -52,7 +52,7 @@
                 </div>
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
-                         <li><a href="index.jsp"><i class="fa-solid fa-house"></i> Inicio</a></li>
+                        <li><a href="index.jsp"><i class="fa-solid fa-house"></i> Inicio</a></li>
                         <li><a href="tienda.jsp"><i class="fa-solid fa-store"></i> Tienda</a></li>
                             <%
                                 if (usuario == null || usuario.isEmpty()) {
@@ -80,10 +80,11 @@
                         <img src="images/about-img.jpg" class="img-responsive" alt="about img">
                     </div>
                     <div class="col-md-6 col-sm-12 about-des">
-                        <h2>Que somos?</h2>
-                        <p>Somos una tienda que se encarga de distribuir juegos fisicos para los aficionados al mundo de los
-                            videojuegos al igual que si quieres comenzar tambien tenemos consolas donde jugar los juegos que
-                            tengas o figuras para coleccionar, tambien se cuenta con servicios de reparacion </p>
+                        <h2>¿Quiénes somos?</h2>
+                        <p>Somos una tienda que se encarga de distribuir juegos 
+                            físicos para los aficionados al mundo de los videojuegos. 
+                            Además, si quieres comenzar, también contamos con consolas para jugar los juegos que tengas o 
+                            figuras para coleccionar. También ofrecemos servicios de reparación.</p>
 
                     </div>
                 </div>
