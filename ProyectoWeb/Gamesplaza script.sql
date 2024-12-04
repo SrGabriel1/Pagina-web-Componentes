@@ -130,7 +130,38 @@ BEGIN
 END $$
 
 DELIMITER ;
+DELIMITER $$
 
+CREATE PROCEDURE eliminarProductoDelCarrito(
+    IN p_idProducto INT,
+    IN p_usuario VARCHAR(255)
+)
+BEGIN
+    DECLARE v_idCarrito INT;
+    DECLARE v_existeProducto INT;
+    
+    -- Obtener el id del carrito del usuario
+    SELECT idCarrito INTO v_idCarrito
+    FROM carrito
+    WHERE id_usuario = (SELECT idUsuario FROM usuario WHERE nombre = p_usuario)
+    LIMIT 1;
+    
+    -- Verificar si el producto existe en el carrito
+    SELECT COUNT(*) INTO v_existeProducto
+    FROM carrito_productos
+    WHERE id_carrito = v_idCarrito AND id_producto = p_idProducto;
+    
+    -- Si el producto existe en el carrito, lo eliminamos
+    IF v_existeProducto > 0 THEN
+        DELETE FROM carrito_productos
+        WHERE id_carrito = v_idCarrito AND id_producto = p_idProducto;
+    ELSE
+        -- Si el producto no está en el carrito, podemos lanzar un mensaje de error o simplemente no hacer nada
+        SIGNAL SQLSTATE '45000' SET MESSAGE_TEXT = 'El producto no está en el carrito.';
+    END IF;
+END $$
+
+DELIMITER ;
 
 
 

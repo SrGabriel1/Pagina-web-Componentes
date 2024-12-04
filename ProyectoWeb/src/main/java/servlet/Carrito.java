@@ -97,7 +97,7 @@ public class Carrito extends HttpServlet {
 
             // Si el producto se agregó correctamente, redirigir al carrito
             if (productoAgregado) {
-                response.sendRedirect("carrito.jsp");
+                response.sendRedirect("tienda.jsp");
             } else {
                 // Si ocurre un error, redirigir a la tienda o mostrar un mensaje de error
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error al agregar el producto al carrito.");
