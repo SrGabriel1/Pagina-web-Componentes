@@ -19,14 +19,13 @@ public class idk {
      */
     public static void main(String[] args) {
        // Definir el nombre del usuario cuyo carrito se va a consultar
-        String usuario = "Abel";  // El nombre del usuario
+        String usuario = "a";  // El nombre del usuario
 
         // Crear una instancia de CarritoModelo
         CarritoModelo carritoModelo = new CarritoModelo();
 
         // Obtener la lista de productos del carrito del usuario
         List<Carrito_Productos> productosEnCarrito = carritoModelo.getProductsInCart(usuario);
-
         // Verificar si el carrito tiene productos
         if (productosEnCarrito.isEmpty()) {
             System.out.println("El carrito de " + usuario + " está vacío.");

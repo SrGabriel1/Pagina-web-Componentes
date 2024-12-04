@@ -44,29 +44,26 @@ public class Carrito extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Obtener el nombre de usuario de la sesión
-        System.out.println("ENTRO AL SERVLET");
+// Obtener el nombre de usuario de la sesión
         HttpSession session = request.getSession();
         String usuario = (String) session.getAttribute("usuario");
 
-        // Verificar si el usuario está logueado
         if (usuario != null && !usuario.isEmpty()) {
-            System.out.println("ENTRO AL IF");
-            // Crear una instancia de ControladorCarrito para manejar los datos del carrito
+            // Crear una instancia del controlador
             ControladorCarrito controladorCarrito = new ControladorCarrito();
 
-            // Obtener el HTML de los productos y el total
+            // Obtener el HTML del carrito
             String productosHTML = controladorCarrito.cargarCarrito(usuario);
-            float total = controladorCarrito.getTotal();  // Si tienes un método para calcular el total
 
-            // Pasar los datos al JSP
+            // Pasar el HTML y el total al JSP
             request.setAttribute("productosHTML", productosHTML);
-            request.setAttribute("total", total);
+            // Si necesitas el total, puedes obtenerlo del controlador, pero en este caso no es necesario
+            request.setAttribute("total", controladorCarrito.getTotal());
 
-            // Redirigir al carrito.jsp
+            // Redirigir al JSP que muestra el carrito
             request.getRequestDispatcher("carrito.jsp").forward(request, response);
         } else {
-            // Redirigir a la página de inicio de sesión si no está logueado
+            // Si el usuario no está logueado, redirigir al inicio de sesión
             response.sendRedirect("index.jsp");
         }
     }
@@ -108,14 +105,13 @@ public class Carrito extends HttpServlet {
         }
     }
 
-
-/**
- * Returns a short description of the servlet.
- *
- * @return a String containing servlet description
- */
-@Override
-public String getServletInfo() {
+    /**
+     * Returns a short description of the servlet.
+     *
+     * @return a String containing servlet description
+     */
+    @Override
+    public String getServletInfo() {
         return "Servlet que gestiona el carrito de compras";
     }// </editor-fold>
 

@@ -1,6 +1,6 @@
 
 <%
-  HttpSession objSesion = request.getSession(false);
+    HttpSession objSesion = request.getSession(false);
     String usuario = (String) objSesion.getAttribute("usuario");
 %>
 
@@ -85,50 +85,63 @@
                 </thead>
                 <tbody>
                     <!-- Mostrar productos dinámicamente -->
-                    <%= request.getAttribute("productosHTML") %> <!-- Esto cargará los productos del carrito -->
+                    <%= request.getAttribute("productosHTML")%> <!-- Esto cargará los productos del carrito -->
                 </tbody>
             </table>
 
             <!-- Mostrar el total de los productos en el carrito -->
             <div class="text-end">
-                <h3>Total: $<%= request.getAttribute("total") != null ? request.getAttribute("total") : 0.00 %></h3>
-                <button class="btn btn-primary">Proceder a Pagar</button>
+                <h3>Total: $<%= request.getAttribute("total") != null ? request.getAttribute("total") : 0.00%></h3>
+                <form action="ProcesarPago" method="post" onsubmit="return confirmarPago()">
+                    <input type="hidden" name="usuario" value="<%= usuario%>">
+                    <button type="submit" class="btn btn-primary">Proceder a Pagar</button>
+                </form>
             </div>
-        </div>
-
-        <!-- Footer -->
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-6 col-sm-6">
-                        <p>Nosotros:</p>
-                        <ul class="footer-links">
-                            <li><a href="acerca.jsp" class="fa-solid fa-users"></a></li>
-                            <li><a href="contacto.jsp" class="fa-solid fa-phone"></a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-md-6 col-sm-6">
-                        <p>Visítanos:</p>
-                        <ul class="social-icons">
-                            <li><a href="https://www.facebook.com/gamesplazaobregon/?locale=es_LA" class="fa-brands fa-facebook"></a></li>
-                            <li><a href="https://www.instagram.com/gamesplaza/" class="fa-brands fa-instagram"></a></li>
-                            <li><a href="https://www.tiktok.com/@gamesplazamx" class="fa-brands fa-tiktok"></a></li>
-                        </ul>
-                    </div>
-                </div>
+                    <br>
+            <%
+                String mensaje = (String) request.getAttribute("mensaje");
+                if (mensaje != null) {
+            %>
+            <div class="alert alert-success" role="alert">
+                <%= mensaje%>
             </div>
-
-            <div class="copyright">
+            <%
+                }
+            %>
+            <br>
+            <!-- Footer -->
+            <footer>
                 <div class="container">
                     <div class="row">
-                        <div class="col-md-12 text-center">
-                            <p>Copyright © 2024 GamesPlaza</p>
+                        <div class="col-md-6 col-sm-6">
+                            <p>Nosotros:</p>
+                            <ul class="footer-links">
+                                <li><a href="acerca.jsp" class="fa-solid fa-users"></a></li>
+                                <li><a href="contacto.jsp" class="fa-solid fa-phone"></a></li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-6 col-sm-6">
+                            <p>Visítanos:</p>
+                            <ul class="social-icons">
+                                <li><a href="https://www.facebook.com/gamesplazaobregon/?locale=es_LA" class="fa-brands fa-facebook"></a></li>
+                                <li><a href="https://www.instagram.com/gamesplaza/" class="fa-brands fa-instagram"></a></li>
+                                <li><a href="https://www.tiktok.com/@gamesplazamx" class="fa-brands fa-tiktok"></a></li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
-        </footer>
+
+                <div class="copyright">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-12 text-center">
+                                <p>Copyright © 2024 GamesPlaza</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
 
 
     </body>

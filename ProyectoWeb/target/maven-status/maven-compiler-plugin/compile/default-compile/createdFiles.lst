@@ -12,6 +12,7 @@ prueba.class
 com\mycompany\proyectoweb\JakartaRestConfiguration.class
 controlador\Conexion.class
 controlador\ControladorProducto.class
+servlet\ProcesarPago.class
 controlador\ControladorCarrito.class
 Modelo\Producto.class
 servlet\InicioSesion.class

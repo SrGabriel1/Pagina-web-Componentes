@@ -143,9 +143,7 @@ public class ModeloProducto extends Conexion {
                 if (pst != null) {
                     pst.close();
                 }
-                if (getConexion() != null) {
-                    getConexion().close();
-                }
+             
             } catch (SQLException e) {
                 System.out.println("Error al cerrar recursos en getProductById: " + e.getMessage());
             }

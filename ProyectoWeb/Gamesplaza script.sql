@@ -69,6 +69,8 @@ END $$
 DELIMITER 
 DELIMITER $$
 
+DELIMITER $$
+
 CREATE PROCEDURE obtener_productos_carrito_usuario(IN nombre_usuario VARCHAR(255))
 BEGIN
     -- Declarar una variable para el ID del usuario
@@ -82,15 +84,19 @@ BEGIN
 
     -- Verificar si el id_usuario fue encontrado
     IF id_usuario IS NOT NULL THEN
-        -- Obtener solo los productos en el carrito del usuario (sin descripción ni id_carrito)
-        SELECT p.idProducto, p.precio, cp.cantidad
+        -- Obtener productos en el carrito del usuario con idCarritoProductos
+        SELECT 
+            p.idProducto, 
+            p.precio, 
+            cp.cantidad, 
+            cp.idCarritoProductos
         FROM carrito c
         JOIN carrito_productos cp ON c.idCarrito = cp.id_carrito
         JOIN producto p ON cp.id_producto = p.idProducto
         WHERE c.id_usuario = id_usuario;
     ELSE
         -- Si el usuario no existe, devolver un conjunto vacío
-        SELECT NULL AS idProducto, NULL AS precio, NULL AS cantidad;
+        SELECT NULL AS idProducto, NULL AS precio, NULL AS cantidad, NULL AS idCarritoProductos;
     END IF;
 END $$
 
@@ -109,8 +115,14 @@ BEGIN
     -- Obtener el id del carrito del usuario
     SELECT idCarrito INTO v_idCarrito
     FROM carrito
-    WHERE id_usuario = (SELECT idUsuario FROM usuario WHERE nombre = p_usuario)
-    LIMIT 1;
+    WHERE id_usuario = (SELECT idUsuario FROM usuario WHERE nombre = p_usuario LIMIT 1);
+
+    -- Si el carrito no existe, lo creamos
+    IF v_idCarrito IS NULL THEN
+        INSERT INTO carrito (id_usuario)
+        VALUES ((SELECT idUsuario FROM usuario WHERE nombre = p_usuario LIMIT 1));
+        SET v_idCarrito = LAST_INSERT_ID();
+    END IF;
 
     -- Verificar si el producto ya existe en el carrito
     SELECT COUNT(*) INTO v_existeProducto
@@ -130,6 +142,7 @@ BEGIN
 END $$
 
 DELIMITER ;
+
 DELIMITER $$
 
 CREATE PROCEDURE eliminarProductoDelCarrito(

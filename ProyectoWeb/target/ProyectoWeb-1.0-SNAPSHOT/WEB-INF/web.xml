@@ -12,6 +12,10 @@
         <servlet-name>Carrito</servlet-name>
         <servlet-class>servlet.Carrito</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>ProcesarPago</servlet-name>
+        <servlet-class>servlet.ProcesarPago</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>InicioSesion</servlet-name>
         <url-pattern>/iniciar</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>Carrito</servlet-name>
         <url-pattern>/Carrito</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ProcesarPago</servlet-name>
+        <url-pattern>/ProcesarPago</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
